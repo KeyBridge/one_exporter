@@ -61,7 +61,7 @@ Installation is relative straightforward.
   2.  Edit then copy the `one_exporter.service` file to `/etc/systemd/system/`
   3.  Test and then enable the service.
 
-Edit the configuration file with your password, then, as root, 
+Do this by first editing the configuration file with your password, then, as root, 
 
 
 ```sh
@@ -69,10 +69,14 @@ Edit the configuration file with your password, then, as root,
 git clone https://github.com/KeyBridge/one_exporter.git
 cd one_exporter
 wget https://github.com/KeyBridge/one_exporter/releases/download/v0.1.2/one_exporter
+
+# Important - edit the configuration file before proceeding
+
 # Install the application
 cp one_exporter /usr/local/bin
 cp one_exporter.conf /etc/one
 cp one_exporter.service /etc/systemd/system/
+
 # Create, start and enable the service
 systemctl daemon-reload
 systemctl start one_exporter.service
