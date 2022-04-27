@@ -61,10 +61,14 @@ Installation is relative straightforward.
   2.  Edit then copy the `one_exporter.service` file to `/etc/systemd/system/`
   3.  Test and then enable the service.
 
-Do this by first editing the configuration file with your password, then, as root, 
+Do this with the following steps. As root, 
 
 
 ```sh
+# Create and use a temporary working directory
+mkdir -p /tmp/work
+cd /tmp/work
+
 # Download the source and binary
 git clone https://github.com/KeyBridge/one_exporter.git
 cd one_exporter
