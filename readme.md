@@ -63,10 +63,17 @@ Installation is relative straightforward.
 
 Edit the configuration file with your password, then, as root, 
 
+
 ```sh
+# Download the source and binary
+git clone https://github.com/KeyBridge/one_exporter.git
+cd one_exporter
+wget https://github.com/KeyBridge/one_exporter/releases/download/v0.1.2/one_exporter
+# Install the application
 cp one_exporter /usr/local/bin
 cp one_exporter.conf /etc/one
 cp one_exporter.service /etc/systemd/system/
+# Create, start and enable the service
 systemctl daemon-reload
 systemctl start one_exporter.service
 systemctl status one_exporter.service
