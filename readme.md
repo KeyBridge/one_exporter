@@ -40,7 +40,7 @@ Use the `--help` flag for more information.
 
 The one_exporter can be managed as a service with the following systemd service file:
 
-```config
+```
 [Unit]
 Description=Prometheus exporter for OpenNebula clusters
 
