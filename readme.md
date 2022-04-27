@@ -32,22 +32,40 @@ port: 9621
 ## Use
 
 Run the one exporter with the `-c` flag pointing to its configuration file. 
-If you do n0t include a configuration file the exporter will use the config.yml in the current directory, so `./one_exporter` and `./one_exporter -c config.yml` are identical.
+If you do n0t include a configuration file the exporter will use the config.yml in the current directory, so `./one_exporter` and `./one_exporter -c one_exporter.conf` are identical.
 
 Use the `--help` flag for more information.
 
 ## Install as service (on Ubuntu/Debian)
 
-Install the one_exporter as a service with the following steps. 
+The one_exporter can be managed as a service with the following systemd service file:
+
+```config
+[Unit]
+Description=Prometheus exporter for OpenNebula clusters
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/one_exporter -c /etc/one/one_exporter.conf 
+Restart=on-failure
+User=oneadmin
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Installation is relative straightforward. 
 
   1.  Copy the `one_exporter` binary to `/usr/local/bin`
+  2.  Copy the `one_exporter.conf` configuration file to `/etc/one`
   2.  Edit then copy the `one_exporter.service` file to `/etc/systemd/system/`
   3.  Test and then enable the service.
 
-As root:
+Edit the configuration file with your password, then, as root, 
 
 ```sh
 cp one_exporter /usr/local/bin
+cp one_exporter.conf /etc/one
 cp one_exporter.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl start one_exporter.service
