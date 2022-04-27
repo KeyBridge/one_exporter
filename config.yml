@@ -1,12 +1,11 @@
----
 
 # credentials to access OpenNebula
 user: oneadmin
-password: oneadmin
+password: PASSWORD
 
 # OpenNebula frontend endpoint
 # an empty endpoint will default to http://localhost:2633/RPC2
-# endpoint:
+endpoint: http://localhost:2633/RPC2
 
 # frequency to retrieve metrics in seconds. defaults to 60.
 # interval: 60

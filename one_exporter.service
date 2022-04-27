@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus exporter for OpenNebula clusters
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/one_exporter -c /etc/one/one_exporter.conf 
+Restart=on-failure
+User=oneadmin
+
+[Install]
+WantedBy=multi-user.target
+
